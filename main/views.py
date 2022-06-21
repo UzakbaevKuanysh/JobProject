@@ -2,16 +2,30 @@ from unicodedata import name
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from main.models import Worker, Boss
-
-
+from main import permissions
+from rest_framework import viewsets, permissions
+from rest_framework.decorators import APIView
+from main.serializers import WorkerSerializer
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from .models import *
-
+from main.permissions import IsOwnerOrReadOnly
 from django.contrib import messages
 from django.core.paginator import Paginator
+class WorkerViewSet(viewsets.ModelViewSet):
+    queryset = Worker.objects.all()
+    serializer_class = WorkerSerializer
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+    permission_classes = [permissions.IsAuthenticated,IsOwnerOrReadOnly]
 
+class WorkerViewSet_detail(viewsets.ModelViewSet):
+    queryset = Worker.objects.all()
+    serializer_class = WorkerSerializer
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+    permission_classes = [permissions.IsAuthenticated,IsOwnerOrReadOnly]
 
 
 

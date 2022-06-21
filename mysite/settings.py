@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-Worker_MODEL = 'main.Worker'
+
 INSTALLED_APPS = [
     'main',
     'django.contrib.admin',
