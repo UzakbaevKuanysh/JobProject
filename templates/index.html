@@ -31,7 +31,7 @@
     {% for message in messages %}
       <p class = "alert  alert-success mt-3">{{message}}</p>
       {% endfor %}
-      <div class ="mx-auto" style="width: 200px;">
+      <div class ="mx-auto" style="width: 200px; margin-top:50px;">
       <a href = "{% url 'main:add_worker' %}" class = "btn btn-sm btn-info">Add New</a>
     </div>
         <div class = "mt-5">
