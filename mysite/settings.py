@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-Worker_MODEL = 'main.Worker'
+
 INSTALLED_APPS = [
     'main',
     'django.contrib.admin',
@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'job',
+        'NAME': '', #name of your database
         'USER': 'postgres',
-        'PASSWORD': '12345678',
+        'PASSWORD': '', #password of the postgres
         'HOST': 'localhost',
         'PORT': '5432',
     }
